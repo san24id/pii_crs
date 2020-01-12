@@ -1,0 +1,796 @@
+var grid = new Datatable();
+var grid2 = new Datatable();
+
+$('#re').hide();
+$('#rl').hide();
+$('#il').hide();
+$('#li').hide();
+
+$('#tr').hide();
+$('#tl').hide();
+$('#ti').hide();
+$('#tk').hide();
+
+$('#re2').hide();
+$('#tr2').hide();
+
+$('#s_r1_level').hide();
+$('#choose_l_divisi-under1').hide();
+$('#s_r2_level').hide();
+$('#choose_l_divisi-under2').hide();
+
+$('#filterFormBy').change(function(){
+	var frmval = $('#filterFormBy').val(); 
+	if(frmval === 'risk_event'){
+		$('#re').show();
+		$('#re2').hide();
+		$('#rl').hide();
+		$('#il').hide();
+		$('#li').hide();
+		$('#s_r1_level').hide();
+		$('#choose_l_divisi-under1').hide();
+		$('.hash').attr('id','filterFormValue');
+		$('.hesh').attr('id','fl');
+		$('.hish').attr('id','fi');
+		$('.hosh').attr('id','fk');
+		$('.besh').attr('id','l_divisi1');
+		$('.rash').attr('id','s_level_r1');			
+	}
+	else if(frmval === 'risk_level'){
+		$('#re').hide();
+		$('#re2').hide();
+		$('#rl').show();
+		$('#il').hide();
+		$('#li').hide();
+		$('#s_r1_level').hide();
+		$('#choose_l_divisi-under1').hide();
+		$('.hash').attr('id','fe');
+		$('.hesh').attr('id','filterFormValue');
+		$('.hish').attr('id','fi');
+		$('.hosh').attr('id','fk');
+		$('.besh').attr('id','l_divisi1');
+		$('.rash').attr('id','s_level_r1');	
+	}
+	else if(frmval === 'risk_impact_level'){
+		$('#re').hide();
+		$('#re2').hide();
+		$('#rl').hide();
+		$('#il').show();
+		$('#li').hide();
+		$('#s_r1_level').hide();
+		$('#choose_l_divisi-under1').hide();
+		$('.hash').attr('id','fe');
+		$('.hish').attr('id','filterFormValue');
+		$('.hesh').attr('id','fl');
+		$('.hosh').attr('id','fk');
+		$('.besh').attr('id','l_divisi1');
+		$('.rash').attr('id','s_level_r1');			
+	}
+	else if(frmval === 'risk_likelihood_key'){
+		$('#re').hide();
+		$('#re2').hide();
+		$('#rl').hide();
+		$('#il').hide();
+		$('#li').show();
+		$('#s_r1_level').hide();
+		$('#choose_l_divisi-under1').hide();
+		$('.hash').attr('id','fe');
+		$('.hish').attr('id','fi');
+		$('.hesh').attr('id','fl');		
+		$('.hosh').attr('id','filterFormValue');
+		$('.besh').attr('id','l_divisi1');
+		$('.rash').attr('id','s_level_r1');	
+
+	}else if(frmval === 'risk_code'){
+		$('#re').show();
+		$('#re2').hide();
+		$('#rl').hide();
+		$('#il').hide();
+		$('#li').hide();
+		$('#s_r1_level').hide();
+		$('#choose_l_divisi-under1').hide();
+		$('.hash').attr('id','filterFormValue');
+		$('.hesh').attr('id','fl');
+		$('.hish').attr('id','fi');
+		$('.hosh').attr('id','fk');
+		$('.besh').attr('id','l_divisi1');
+		$('.rash').attr('id','s_level_r1');			
+	}
+	else if(frmval === 'risk_status'){
+		$('#re').hide();
+		$('#re2').hide();
+		$('#rl').hide();
+		$('#il').hide();
+		$('#li').hide();
+		$('#s_r1_level').show();
+		$('#choose_l_divisi-under1').hide();
+		$('.hash').attr('id','fe');
+		$('.hesh').attr('id','fl');
+		$('.hish').attr('id','fi');
+		$('.hosh').attr('id','fk');
+		$('.besh').attr('id','l_divisi1');
+		$('.rash').attr('id','filterFormValue');			
+	}
+	else if(frmval === 'risk_owner'){
+		$('#re').hide();
+		$('#re2').hide();
+		$('#rl').hide();
+		$('#il').hide();
+		$('#li').hide();
+		$('#s_r1_level').hide();
+		$('#choose_l_divisi-under1').show();
+		$('.hash').attr('id','fe');
+		$('.hesh').attr('id','fl');
+		$('.hish').attr('id','fi');
+		$('.hosh').attr('id','fk');
+		$('.besh').attr('id','filterFormValue');	
+		$('.rash').attr('id','s_level_r1');		
+	}	
+	else{
+		$('#re').hide();
+		$('#re2').hide();
+		$('#rl').hide();
+		$('#il').hide();
+		$('#li').hide();
+		$('#s_r1_level').hide();
+		$('#choose_l_divisi-under1').hide();
+		$('.hash').attr('id','fe');
+		$('.hish').attr('id','fi');
+		$('.hesh').attr('id','fl');		
+		$('.hosh').attr('id','fk');
+		$('.besh').attr('id','l_divisi1');
+		$('.rash').attr('id','s_level_r1');	
+	}
+});
+
+$('#filterFormBy2').change(function(){
+	var frmval = $('#filterFormBy2').val(); 
+	if(frmval === 'risk_event'){
+		$('#tr2').hide();
+		$('#tr').show();
+		$('#tl').hide();
+		$('#ti').hide();
+		$('#tk').hide();
+		$('#s_r2_level').hide();
+		$('#choose_l_divisi-under2').hide();
+		$('.pash').attr('id','filterFormValue2');
+		$('.pesh').attr('id','pl');
+		$('.pish').attr('id','pi');
+		$('.posh').attr('id','pk');
+		$('.cesh').attr('id','l_divisi2');
+		$('.rish').attr('id','s_level_r2');		
+	}
+	else if(frmval === 'risk_level'){
+		$('#tr2').hide();
+		$('#tr').hide();
+		$('#tl').show();
+		$('#ti').hide();
+		$('#tk').hide();
+		$('#s_r2_level').hide();
+		$('#choose_l_divisi-under2').hide();
+		$('.pash').attr('id','pe');
+		$('.pesh').attr('id','filterFormValue2');
+		$('.pish').attr('id','pi');
+		$('.posh').attr('id','pk');
+		$('.cesh').attr('id','l_divisi2');
+		$('.rish').attr('id','s_level_r2');	
+	}
+	else if(frmval === 'risk_impact_level'){
+		$('#tr2').hide();
+		$('#tr').hide();
+		$('#tl').hide();
+		$('#ti').show();
+		$('#tk').hide();
+		$('#s_r2_level').hide();
+		$('#choose_l_divisi-under2').hide();
+		$('.pash').attr('id','pe');
+		$('.pish').attr('id','filterFormValue2');
+		$('.pesh').attr('id','pl');
+		$('.posh').attr('id','pk');
+		$('.cesh').attr('id','l_divisi2');
+		$('.rish').attr('id','s_level_r2');			
+	}
+	else if(frmval === 'risk_likelihood_key'){
+		$('#tr2').hide();
+		$('#tr').hide();
+		$('#tl').hide();
+		$('#ti').hide();
+		$('#tk').show();
+		$('#s_r2_level').hide();
+		$('#choose_l_divisi-under2').hide();
+		$('.pash').attr('id','pe');
+		$('.pish').attr('id','pi');
+		$('.pesh').attr('id','pl');		
+		$('.posh').attr('id','filterFormValue2');
+		$('.cesh').attr('id','l_divisi2');
+		$('.rish').attr('id','s_level_r2');	
+	}
+	else if(frmval === 'risk_code'){
+		$('#tr2').hide();
+		$('#tr').show();
+		$('#tl').hide();
+		$('#ti').hide();
+		$('#tk').hide();
+		$('#s_r2_level').hide();
+		$('#choose_l_divisi-under2').hide();
+		$('.pash').attr('id','filterFormValue2');
+		$('.pesh').attr('id','pl');
+		$('.pish').attr('id','pi');
+		$('.posh').attr('id','pk');
+		$('.cesh').attr('id','l_divisi2');
+		$('.rish').attr('id','s_level_r2');			
+	}
+	else if(frmval === 'risk_status'){
+		$('#tr2').hide();
+		$('#tr').hide();
+		$('#tl').hide();
+		$('#ti').hide();
+		$('#tk').hide();
+		$('#s_r2_level').show();
+		$('#choose_l_divisi-under2').hide();
+		$('.pash').attr('id','pe');
+		$('.pesh').attr('id','pl');
+		$('.pish').attr('id','pi');
+		$('.posh').attr('id','pk');
+		$('.cesh').attr('id','l_divisi2');
+		$('.rish').attr('id','filterFormValue2');			
+	}
+	else if(frmval === 'risk_owner'){
+		$('#tr2').hide();
+		$('#tr').hide();
+		$('#tl').hide();
+		$('#ti').hide();
+		$('#tk').hide();
+		$('#s_r2_level').hide();
+		$('#choose_l_divisi-under2').show();
+		$('.pash').attr('id','pe');
+		$('.pesh').attr('id','pl');
+		$('.pish').attr('id','pi');
+		$('.posh').attr('id','pk');
+		$('.cesh').attr('id','filterFormValue2');
+		$('.rish').attr('id','s_level_r2');				
+	}		
+	else{
+		$('#tr2').hide();
+		$('#tr').hide();
+		$('#tl').hide();
+		$('#ti').hide();
+		$('#tk').hide();
+		$('#s_r2_level').hide();
+		$('#choose_l_divisi-under2').hide();
+		$('.pash').attr('id','pe');
+		$('.pish').attr('id','pi');
+		$('.pesh').attr('id','pl');		
+		$('.posh').attr('id','pk');
+		$('.cesh').attr('id','l_divisi2');
+		$('.rish').attr('id','s_level_r2');
+
+	}	
+});
+
+grid.init({
+    src: $("#datatable_ajax"),
+    onSuccess: function (grid) {
+        // execute some code after table records loaded
+    },
+    onError: function (grid) {
+        // execute some code on network or other general error  
+    },
+    onDataLoad: function(grid) {
+        // execute some code on ajax data load
+    },
+    loadingMessage: 'Loading...',
+    dataTable: { // here you can define a typical datatable settings from http://datatables.net/usage/options 
+
+        // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
+        // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/scripts/datatable.js). 
+        // So when dropdowns used the scrollable div should be removed. 
+        //"dom": "<'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'<'table-group-actions pull-right'>>r>t<'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'>>",
+        
+		//"scrollX": true,
+        "pageLength": 25, // default record count per page
+        "ajax": {
+            "url": site_url+"/risk/RiskRegister/riskGetRollOver_under" // ajax source
+        },
+        "columnDefs": [ {
+        	"targets": 0,
+        	"data": "risk_status",
+        	"render": function ( data, type, full, meta ) {
+        		var img = '';
+        		if (data == '0' || data == '1') {
+        			img = 'draft.png';
+        		} else if (data == '2') {
+        			img = 'submit.png';
+        		} else if (data == '3') {
+                    img = 'treatment.png';
+        		}else if (data == '4' || data == '5') {
+        			img = 'treatment.png';
+        		}else if (data == '6') {
+        			img = 'actplan.png';
+        		}else if (data == '10') {
+                    img = 'executed_2.png';
+                }else if (data == '20') {
+        			img = 'executed.png';
+        		}
+        		return '<center><img src="'+base_url+'assets/images/legend/'+img+'"/></center>';
+        	}
+        }, {
+        	"targets": 1,
+        	"data": "risk_code",
+        	"render": function ( data, type, full, meta ) {
+        		var cls = 'font-green';
+        		if (full.risk_status == '0' || full.risk_status == '1') cls = '';
+        		return '<a target="_self" class="'+cls+'" href="'+site_url+'/main/viewRisk/'+full.risk_id+'">'+data+'</a>';
+        	}
+        }, {
+        	"targets": 6,
+        	"data": "risk_status",
+        	"render": function ( data, type, full, meta ) {
+        		var img = '';
+        		if (data == '0') {
+        			img = '<div class="btn-group">'+
+        					'<button type="button" class="btn btn-default btn-xs button-grid-confirm"><i class="fa fa-toggle-off font-green"> Move to Maintenance </i></button>'+
+        					
+        				'</div>';
+        		} else if (data == '1') {
+        			img = '<div class="btn-group">'+
+        					'<button type="button" class="btn btn-default btn-xs button-grid-confirm"><i class="fa fa-toggle-off font-green"> Move to Maintenance </i></button>'+
+        					
+        				'</div>';
+        		} else {
+        			img = '<div class="btn-group">'+
+        					'<button type="button" class="btn btn-default btn-xs button-grid-confirm"><i class="fa fa-toggle-off font-green"> Move to Maintenance </i></button>'+
+        					
+        				'</div>';
+        		}
+        		return img;
+        	}
+        },{
+            "targets": 7,
+            "data": "risk_status",
+            "render": function ( data, type, full, meta ) {
+                var img = '';
+                    img = '<div class="btn-group">'+
+                            '<button type="button" class="btn btn-default btn-xs button-grid-delete"><i class="fa fa-trash-o font-red"> Delete </i></button>'+
+
+                        '</div>';
+                return '<center>'+img+'</center>';
+            }
+        } ],
+        "columns": [
+			{ "data": "risk_status", "orderable": true },
+			{ "data": "risk_code" },
+			{ "data": "ap_id" },
+			{ "data": "risk_event" },
+			{ "data": "risk_level_v" },
+			
+			{ "data": "risk_owner_v" },
+			{ "data": "risk_status", "orderable": false },
+			{ "data": "risk_status", "orderable": false }
+
+       ],
+        "order": [
+            [1, "asc"]
+        ]// set first column as a default sort by asc
+    }
+});
+
+grid2.init({
+    src: $("#datatable_ajax2"),
+    onSuccess: function (grid) {
+        // execute some code after table records loaded
+    },
+    onError: function (grid) {
+        // execute some code on network or other general error  
+    },
+    onDataLoad: function(grid) {
+        // execute some code on ajax data load
+    },
+    loadingMessage: 'Loading...',
+    dataTable: { // here you can define a typical datatable settings from http://datatables.net/usage/options 
+
+        // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
+        // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/scripts/datatable.js). 
+        // So when dropdowns used the scrollable div should be removed. 
+        //"dom": "<'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'<'table-group-actions pull-right'>>r>t<'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'>>",
+        
+		//"scrollX": true,
+        "pageLength": 25, // default record count per page
+        "ajax": {
+            "url": site_url+"/risk/RiskRegister/riskGetRollOver_under2" // ajax source
+        },
+        "columnDefs": [ {
+        	"targets": 0,
+        	"data": "risk_status",
+        	"render": function ( data, type, full, meta ) {
+        		var img = '';
+        		if (data == '0' || data == '1') {
+        			img = 'draft.png';
+        		} else if (data == '2') {
+        			img = 'submit.png';
+        		} else if (data == '3') {
+                    img = 'treatment.png';
+        		}else if (data == '4' || data == '5') {
+        			img = 'treatment.png';
+        		}else if (data == '6') {
+        			img = 'actplan.png';
+        		}else if (data == '10') {
+                    img = 'executed_2.png';
+                }else if (data == '20') {
+        			img = 'executed.png';
+        		}
+        		return '<center><img src="'+base_url+'assets/images/legend/'+img+'"/></center>';
+        	}
+        }, {
+        	"targets": 1,
+        	"data": "risk_code",
+        	"render": function ( data, type, full, meta ) {
+        		var cls = 'font-green';
+        		if (full.risk_status == '0' || full.risk_status == '1') cls = '';
+        		return '<a target="_self" class="'+cls+'" href="'+site_url+'/main/mainrac/riskRegisterFormunder/'+full.risk_id+'?status=under">'+data+'</a>';
+        	}
+        },  {
+        	"targets": 6,
+        	"data": "risk_status",
+        	"render": function ( data, type, full, meta ) {
+        		var img = '';
+        		if (data == '0') {
+        			img = '<div class="btn-group">'+
+        					
+        					'<button type="button" class="btn btn-default btn-xs button-grid-delete"><i class="fa fa-toggle-on font-green"> Move to Active List</i></button>'+
+        				'</div>';
+        		} else if (data == '1') {
+        			img = '<div class="btn-group">'+
+        					
+        					'<button type="button" class="btn btn-default btn-xs button-grid-delete"><i class="fa fa-toggle-on font-green"> Move to Active List </i></button>'+
+        				'</div>';
+        		} else {
+        			img = '<div class="btn-group">'+
+        					
+        					'<button type="button" class="btn btn-default btn-xs button-grid-delete"><i class="fa fa-toggle-on font-green"> Move to Active List</i></button>'+
+        				'</div>';
+        		}
+        		return img;
+        	}
+        } ],
+        "columns": [
+			{ "data": "risk_status", "orderable": true },
+			{ "data": "risk_code" },
+			{ "data": "ap_id" },
+			{ "data": "risk_event" },
+			{ "data": "risk_level_v" },
+			
+			{ "data": "risk_owner_v" },
+			{ "data": "risk_status", "orderable": false }
+       ],
+        "order": [
+            [1, "asc"]
+        ]// set first column as a default sort by asc
+    }
+});
+
+
+
+var RiskList = function() {
+	return {
+			dataMode: null,
+	        //main function to initiate the module
+	        init: function() {
+	        	var me = this;
+	        	
+	        	$("#datatable_ajax").on('click', 'button.button-grid-confirm', function(e) {
+    	        	e.preventDefault();
+    	        	
+    	        	var r = this.parentNode.parentNode.parentNode;
+    	        	var data = grid.getDataTable().row(r).data();
+    	        	
+    	        	me.confirmRisk(data);
+    	        });
+    	        
+    	        $("#datatable_ajax").on('click', 'button.button-grid-cancel', function(e) {
+    	        	e.preventDefault();
+    	        	
+    	        	var r = this.parentNode.parentNode.parentNode;
+    	        	var data = grid.getDataTable().row(r).data();
+    	        	
+    	        	me.draftRisk(data);
+    	        });
+    	        
+    	        $("#datatable_ajax2").on('click', 'button.button-grid-delete', function(e) {
+    	        	e.preventDefault();
+    	        	
+    	        	var r = this.parentNode.parentNode.parentNode;
+    	        	var data = grid2.getDataTable().row(r).data();
+    	        	
+    	        	me.deleteRisk(data);
+    	        });
+    	        
+    	        $('#button-save-draft').click(function(e) {
+    	        	e.preventDefault();
+    	        	me.draftRiskPeriode();
+    	        });
+    	        
+    	        $('#button-save-submit').click(function(e) {
+    	        	e.preventDefault();
+    	        	me.submitRiskPeriode();
+    	        });
+				
+				$('#filterFormSubmit').on('click', function() {
+					me.filterDataGridRiskList();  
+				});
+
+				 $("#filterForm").submit(function (e) {
+               	 	e.preventDefault();
+                	me.filterDataGridRiskList(); 
+           		 });
+				
+				$('#filterFormSubmit2').on('click', function() {
+					me.filterDataGridRiskList2(); 
+				});
+
+				$("#filterForm2").submit(function (e) {
+               	 	e.preventDefault();
+                	me.filterDataGridRiskList2(); 
+           		 });
+
+				$('#button-change-request').click(function(e) {
+    	        	e.preventDefault();
+    	        	me.submitRiskPeriode2();
+    	        });
+
+    	        $("#datatable_ajax").on('click', 'button.button-grid-delete', function(e) {
+                    e.preventDefault();
+                    
+                    var r = this.parentNode.parentNode.parentNode;
+    	        	var data = grid.getDataTable().row(r).data();
+                    
+                    me.deleteRiskUnder(data);
+            	});
+
+	        },
+	        filterDataGrid: function(fby, fval) {
+	        	grid.clearAjaxParams();
+	        	grid.setAjaxParam("filter_by", fby);
+	        	grid.setAjaxParam("filter_value", fval);
+	        	grid.getDataTable().ajax.reload();
+	        },
+	        confirmRisk: function(data) {
+	        	var mod = MainApp.viewGlobalModal('confirm', 'Do you want to move this risk to Under Maintenance List,<br/> for risk :'+data.risk_event+'</b> ? ');
+	        	mod.find('button.btn-ok-success').one('click', function(){
+	        		mod.modal('hide');
+	        		var eparam = {
+	        			'risk_id' : data.risk_id
+	        		};
+	        		var url = site_url+'/risk/RiskRegister/confirmRisk_under';
+	        		
+	        		Metronic.blockUI({ boxed: true });
+	        		$.post(
+	        			url,
+	        			$.param(eparam),
+	        			function( data ) {
+	        				Metronic.unblockUI();
+	        				if(data.success) {
+	        					//grid.getDataTable().ajax.reload();
+	        					//grid2.getDataTable().ajax.reload();
+	        					//MainApp.viewGlobalModal('success', 'Success Update Risk Status');
+	        					window.location.href = site_url+'/risk/RiskRegister/undermaintenance';
+
+	        				} else {
+	        					MainApp.viewGlobalModal('error', data.msg);
+	        				}
+	        				
+	        			},
+	        			"json"
+	        		).fail(function() {
+	        			Metronic.unblockUI();
+	        			MainApp.viewGlobalModal('error', 'Error Submitting Data');
+	        		 });
+	        	});
+	        },
+	        draftRisk: function(data) {
+	        	var mod = MainApp.viewGlobalModal('confirm', 'Update risk status to <b>Draft</b> for risk : <b>'+data.risk_event+'</b> ? ');
+	        	mod.find('button.btn-ok-success').one('click', function(){
+	        		mod.modal('hide');
+	        		var eparam = {
+	        			'risk_id' : data.risk_id
+	        		};
+	        		var url = site_url+'/risk/RiskRegister/draftRisk';
+	        		Metronic.blockUI({ boxed: true });
+	        		$.post(
+	        			url,
+	        			$.param(eparam),
+	        			function( data ) {
+	        				Metronic.unblockUI();
+	        				if(data.success) {
+	        					grid.getDataTable().ajax.reload();
+	        					grid2.getDataTable().ajax.reload();
+	        					
+	        					MainApp.viewGlobalModal('success', 'Success Update Risk Status');
+	        				} else {
+	        					MainApp.viewGlobalModal('error', data.msg);
+	        				}
+	        				
+	        			},
+	        			"json"
+	        		).fail(function() {
+	        			Metronic.unblockUI();
+	        			MainApp.viewGlobalModal('error', 'Error Submitting Data');
+	        		 });
+	        	});
+	        },
+	        deleteRisk: function(data) {
+	        	var mod = MainApp.viewGlobalModal('warning', 'Do you want to move this risk to Active List, <br />for risk  : <b>'+data.risk_event+'</b> ?');
+	        	mod.find('button.btn-danger').off('click');
+	        	mod.find('button.btn-danger').one('click', function(){
+	        		mod.modal('hide');
+	        		var eparam = {
+	        			'risk_id' : data.risk_id
+	        		};
+	        		var url = site_url+'/risk/RiskRegister/deleteRisk_under';
+	        		
+	        		Metronic.blockUI({ boxed: true });
+	        		$.post(
+	        			url,
+	        			$.param(eparam),
+	        			function( data ) {
+	        				Metronic.unblockUI();
+	        				if(data.success) {
+	        					grid.getDataTable().ajax.reload();
+	        					grid2.getDataTable().ajax.reload();
+	        					
+	        					MainApp.viewGlobalModal('success', 'Risk moved to active list, Success');
+	        				} else {
+	        					MainApp.viewGlobalModal('error', data.msg);
+	        				}
+	        				
+	        			},
+	        			"json"
+	        		).fail(function() {
+	        			Metronic.unblockUI();
+	        			MainApp.viewGlobalModal('error', 'Error Submitting Data');
+	        		 });
+	        	});
+	        },
+	        draftRiskPeriode: function() {
+	        	//g_p_name
+	        		var url = site_url+'/risk/RiskRegister/draftRiskByPeriode';
+	        		
+	        		Metronic.blockUI({ boxed: true });
+	        		$.post(
+	        			url,
+	        			{},
+	        			function( data ) {
+	        				Metronic.unblockUI();
+	        				if(data.success) {
+	        					grid.getDataTable().ajax.reload();
+	        					grid2.getDataTable().ajax.reload();
+	        					
+	        					MainApp.viewGlobalModal('success', 'Success Update Risk Status');
+	        				} else {
+	        					MainApp.viewGlobalModal('error', data.msg);
+	        				}
+	        				
+	        			},
+	        			"json"
+	        		).fail(function() {
+	        			Metronic.unblockUI();
+	        			MainApp.viewGlobalModal('error', 'Error Submitting Data');
+	        		 });
+	        	
+	        },
+			filterDataGridRiskList: function() {
+        	var fby = $('#filterFormBy').val();
+        	var fval = $('#filterFormValue').val();
+        	
+        	grid.clearAjaxParams();
+        	grid.setAjaxParam("filter_by", fby);
+        	grid.setAjaxParam("filter_value", fval);
+        	grid.getDataTable().ajax.reload();
+			},
+			filterDataGridRiskList2: function() {
+        	var fby = $('#filterFormBy2').val();
+        	var fval = $('#filterFormValue2').val();
+        	
+        	grid2.clearAjaxParams();
+        	grid2.setAjaxParam("filter_by", fby);
+        	grid2.setAjaxParam("filter_value", fval);
+        	grid2.getDataTable().ajax.reload();
+			},
+	        submitRiskPeriode: function() {
+	        	var mod = MainApp.viewGlobalModal('confirm', 'Submit to RAC All Risk in Periode : <b>'+g_p_name+'</b>');
+	        	mod.find('button.btn-ok-success').one('click', function(){
+	        		mod.modal('hide');
+	        		var url = site_url+'/risk/RiskRegister/submitRiskByPeriode';
+	        		
+	        		Metronic.blockUI({ boxed: true });
+	        		$.post(
+	        			url,
+	        			{},
+	        			function( data ) {
+	        				Metronic.unblockUI();
+	        				if(data.success) {
+	        					//grid.getDataTable().ajax.reload();
+	        					//grid2.getDataTable().ajax.reload();
+	        					
+	        					//MainApp.viewGlobalModal('success', 'Success Update Risk Status');
+	        					window.location.href = site_url+'/risk/RiskRegister';
+	        				} else {
+	        					MainApp.viewGlobalModal('error', data.msg);
+	        				}
+	        				
+	        			},
+	        			"json"
+	        		).fail(function() {
+	        			Metronic.unblockUI();
+	        			MainApp.viewGlobalModal('error', 'Error Submitting Data');
+	        		 });
+	        	});
+	        },
+	        
+	        submitRiskPeriode2: function() {
+	        	var mod = MainApp.viewGlobalModal('confirm', 'change request to RAC All Risk in Periode : <b>'+g_p_name+'</b>');
+	        	mod.find('button.btn-ok-success').one('click', function(){
+	        		mod.modal('hide');
+	        		var url = site_url+'/risk/RiskRegister/submitRiskByPeriode2';
+	        		
+	        		Metronic.blockUI({ boxed: true });
+	        		$.post(
+	        			url,
+	        			{},
+	        			function( data ) {
+	        				Metronic.unblockUI();
+	        				if(data.success) {
+	        					//grid.getDataTable().ajax.reload();
+	        					//grid2.getDataTable().ajax.reload();
+	        					
+	        					//MainApp.viewGlobalModal('success', 'Success Change Request');
+	        					window.location.href = site_url+'/main/mainpic#tab_change_request_list';
+	        				} else {
+	        					MainApp.viewGlobalModal('error', data.msg);
+	        				}
+	        				
+	        			},
+	        			"json"
+	        		).fail(function() {
+	        			Metronic.unblockUI();
+	        			MainApp.viewGlobalModal('error', 'Error Submitting Data');
+	        		 });
+	        	});
+	        },
+	                
+	        deleteRiskUnder: function(data) {
+                var mod = MainApp.viewGlobalModal('warning', 'Are you sure want to <b>Delete</b> risk : <b>'+data.risk_event+'</b> ?');
+                mod.find('button.btn-danger').off('click');
+                mod.find('button.btn-danger').one('click', function(){
+                    mod.modal('hide');
+                    var eparam = {
+                        'risk_id' : data.risk_id
+                    };
+                    var url = site_url+'/main/mainrac/deleteRiskrac';          
+                    Metronic.blockUI({ boxed: true });
+                    $.post(
+                        url,
+                        $.param(eparam),
+                        function( data ) {
+                            Metronic.unblockUI();
+                            if(data.success) {
+                                grid.getDataTable().ajax.reload();
+                                
+                                MainApp.viewGlobalModal('success', 'Success Delete Risk');
+                            } else {
+                                MainApp.viewGlobalModal('error', data.msg);
+                            }
+                            
+                        },
+                        "json"
+                    ).fail(function() {
+                        Metronic.unblockUI();
+                        MainApp.viewGlobalModal('error', 'Error Submitting Data');
+                     });
+                });
+            }
+
+
+
+	 }
+}();

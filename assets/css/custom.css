@@ -1,0 +1,56 @@
+.smaller, smaller {
+    font-size: 90%;
+}
+
+label.cl-compact {
+	padding-right: 0;
+	padding-left: 5px;
+}
+
+.flot-y-axis .tickLabel { font-size: 80% }
+
+.input-readview {
+	background-color: #FFF !important;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+.less-gutter > [class*='col-'] {
+    padding-right:5px;
+    padding-left:5px;
+}
+
+.tickercontainer { /* the outer div with the black border */
+width: 500px;
+height: 45px;
+margin: 0;
+padding: 0;
+overflow: hidden;
+color: white;
+}
+.tickercontainer .mask { /* that serves as a mask. so you get a sort of padding both left and right */
+position: relative;
+top: 8px;
+height: 45px;
+/*width: 718px;*/
+overflow: hidden;
+}
+ul.newsticker { /* that's your list */
+position: relative;
+/*left: 750px;*/
+font: bold 10px Verdana;
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+ul.newsticker li {
+float: left; /* important: display inline gives incorrect results when you check for elem's width */
+margin: 0;
+padding-right: 15px;
+/*background: #fff;*/
+line-height: 30px;
+
+}
