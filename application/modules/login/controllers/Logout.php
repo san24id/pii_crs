@@ -10,7 +10,7 @@ class Logout extends CI_Controller {
 		$user= $this->session->credential['username'];
 
 		$this->load->database();
-		$sql = "update m_user_sso set on_login = 0 where username = '$user' and computer_name = '".strtolower(gethostbyaddr($_SERVER['REMOTE_ADDR']))."'";
+		$sql = "update m_user_sso set on_login = 1 where username = '$user' and computer_name = '".strtolower(gethostbyaddr($_SERVER['REMOTE_ADDR']))."'";
 		$rs_user = $this->db->query($sql);
 
 		$this->session->unset_userdata('credential');
