@@ -100,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             
                             <li>
                                 <a href="javascript:;">
-                                <i class="fa fa-gear"></i><?=$session['role_name']?><? =$session['role_id'] ?>
+                                <i class="fa fa-gear"></i><?=$session['role_name']?><?=$session['role_id'] ?>
                                 </a>
                             </li>
                             <li class="divider"></li>
