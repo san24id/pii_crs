@@ -103,6 +103,10 @@
 							$g2 = 'style="display: none"';
 							$g3 = 'style="display: none"';
 						}
+						// else if ($action_plan['execution_status'] == 'EXTEND') { 
+						// 	$g2 = 'style="display: none"';
+						// 	$g4 = 'style="display: none"';
+						// }
 						else {
 							$g1 = 'style="display: none"';
 							$g3 = 'style="display: none"';
