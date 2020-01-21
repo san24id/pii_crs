@@ -950,7 +950,7 @@ class MainPic extends APP_Controller {
 		}
 	}
 
-	public function viewOwnedActionPlanPrior($rid = false, $aps=false) {
+	public function viewOwnedActionPlanPrior($rid = false, $aps=false, $aps1=false) {
 		if ($rid && is_numeric($rid)) {
 			// check mode
 			$data = $this->loadDefaultAppConfig();
@@ -966,7 +966,7 @@ class MainPic extends APP_Controller {
 			$this->load->model('risk/risk');
 			$cred = $this->session->credential;
 			$data['role'] = $cred['role_id'];
-			$risk = $this->risk->getActionPlanByIdPrior($rid, $aps);
+			$risk = $this->risk->getActionPlanByIdPrior($rid, $aps, $aps1);
 
 			if ($risk && $risk['division'] == $cred['division_id']) {
 				
@@ -978,7 +978,7 @@ class MainPic extends APP_Controller {
 					$data['action_plan'] = $risk;
 					$risk_data = $this->risk->getRiskById($risk['risk_id']);
 					$data['risk'] = $risk_data;
-					$data['action_plan_change'] = $this->risk->getActionPlanForChange($rid, $aps);
+					$data['action_plan_change'] = $this->risk->getActionPlanForChange($rid, $aps, $aps1);
 					
 					if ($risk['action_plan_status']*1 == 1 && $risk['assigned_to'] == $cred['username']) {
 						$data['approval'] = false;

@@ -13897,7 +13897,7 @@ where c.periode_id = (select max(periode_id) from m_periode) and e.risk_status i
 				join t_risk e on a.risk_id = e.risk_id 
 				where d.id = ? and a.action_plan_status = ? and e.periode_id = (select max(periode_id) from m_periode)";
 		$par = array('uid' => $risk_id,
-                 'aps' => $ap_status
+                     'aps' => $ap_status
                 );
 		
 		$query = $this->db->query($sql, $par);
@@ -13919,7 +13919,7 @@ where c.periode_id = (select max(periode_id) from m_periode) and e.risk_status i
 		return $row;
 	}
 
-		public function getActionPlanByIdPrior($risk_id, $ap_status, $ap_status1) 
+	public function getActionPlanByIdPrior($risk_id, $ap_status, $ap_status1) 
 	{
 		$sql = "select d.id as id_ap, a.id, a.risk_id,a.action_plan_status, a.action_plan, a.assigned_to, a.division, a.existing_control_id, concat('AP.',d.id) as act_code, date_format(a.due_date, '%d-%m-%Y') as due_date_v, b.division_name as division_v, c.display_name as display_name, a.execution_status, a.execution_explain, a.execution_evidence, a.execution_reason, a.revised_date from t_risk_action_plan a 
         left join m_division b on a.division = b.division_id left 

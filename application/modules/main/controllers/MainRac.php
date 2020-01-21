@@ -24,7 +24,9 @@ class MainRac extends APP_Controller {
 		<script src="assets/global/plugins/flot/jquery.flot.min.js"></script>
 		<script src="assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
 		<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+		
 		<script src="assets/scripts/dashboard/main_rac.js"></script>
+
 		<script src="assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
 		<script src="assets/js_highchart/highcharts.js" type="text/javascript"></script>
